@@ -2,6 +2,7 @@ import React from "react";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
 import { socialMedia } from "@/data";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -29,12 +30,20 @@ const Footer = () => {
         </p>
         <div className="flex items-center md:gap-3 gap-6">
           {socialMedia.map((profile) => (
-            <div
+            <a
+              href={profile.link}
               key={profile.id}
-              className="w-10 h-10  cursor-pointer flex justify-center items-center backdrop:filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop:filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <img src={profile.img} alt={profile.img} width={20} height={20} />
-            </div>
+              <Image
+                src={profile.img}
+                alt={profile.img}
+                width={20}
+                height={20}
+              />
+            </a>
           ))}
         </div>
       </div>
